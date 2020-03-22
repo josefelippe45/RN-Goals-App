@@ -6,6 +6,7 @@ import {
     StyleSheet,
     Modal
 } from 'react-native';
+import Colors from '../constants/colors';
 
 const GoalInput = props => {
     const [enteredGoal, setEnteredGoal] = useState('');
@@ -27,10 +28,10 @@ const GoalInput = props => {
                 />
                 <View style={styles.buttonContainer}>
                     <View style={styles.button}>
-                        <Button title="ADD" onPress={addGoalHandler} />
+                        <Button title="ADD" color= {Colors.primary} onPress={addGoalHandler} />
                     </View>
                     <View style={styles.button}>
-                        <Button title="CANCEL" color='red' onPress={props.onCancel} />
+                        <Button title="CANCEL" color={Colors.secondary} onPress={props.onCancel} />
                     </View>
 
                 </View>

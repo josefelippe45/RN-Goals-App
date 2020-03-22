@@ -8,6 +8,8 @@ import {
 
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
+import Header from './components/Header';
+import Colors from './constants/colors';
 
 export default function App() {
   //this const will deal with an array to manage the input goals.
@@ -21,6 +23,10 @@ export default function App() {
      * because teh flatlist automatically creates a key to our itens in the array
      * we need to set the key object and then put a value wich is our enteredGoal.
     */
+    if (goalTitle.length == 0)
+      return;
+
+
     setCourseGoals(courseGoals =>
       [
         ...courseGoals,
@@ -50,8 +56,13 @@ export default function App() {
     //here we pass the argument styles.screen to capture the style we just created.
     //we should be able to find out when a button is pressed on the component <GoalInput>
     //onAddGoal will be seen as a prop in GoalInput so we can change it on the GoalInput file
+    
     <View style={styles.screen}>
-      <Button title="Add New Goal!" onPress={() => setIsAddMode(true)} />
+      <Header title = "Manage Your Goals"/>
+      <View style= {styles.button}>
+        <Button title="Add New Goal!" color={Colors.primary} onPress={() => setIsAddMode(true)} />
+      </View>
+
       <GoalInput
         visible={isAddMode}
         onAddGoal={addGoalHandler}
@@ -76,6 +87,10 @@ const styles = StyleSheet.create({
   /**then we use another JS object, it can be named whatever you want*/
   screen:
   {
-    padding: 50
+    flex: 1
+  },
+  button:{
+    marginHorizontal: 15,
+    marginVertical: 15
   }
 });

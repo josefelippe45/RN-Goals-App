@@ -14,7 +14,7 @@ const styles = StyleSheet.create
         lstItem:
         {
             padding: 10,//space between the content and the border
-            margin: 10,//space between each component
+            marginHorizontal: 15,//space between each component
             backgroundColor: '#ccc',
             borderColor: 'black',
             borderWidth: 1
